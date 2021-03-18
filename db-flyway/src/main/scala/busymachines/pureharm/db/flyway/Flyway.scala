@@ -1,19 +1,19 @@
-/** Copyright (c) 2017-2019 BusyMachines
-  *
-  * See company homepage at: https://www.busymachines.com/
-  *
-  * Licensed under the Apache License, Version 2.0 (the "License");
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *     http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  */
+/*
+ * Copyright 2019 BusyMachines
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package busymachines.pureharm.db.flyway
 
 import busymachines.pureharm.db._
@@ -27,6 +27,7 @@ object Flyway {
   import busymachines.pureharm.effects._
   import busymachines.pureharm.effects.implicits._
 
+  @scala.deprecated("Use the overload that takes DBConnectionConfig as input. Will be removed", "0.1.0")
   def migrate[F[_]](
     url:          JDBCUrl,
     username:     DBUsername,
@@ -51,10 +52,21 @@ object Flyway {
       migs <- F.delay(fw.migrate())
     } yield migs.migrationsExecuted
 
-  def clean[F[_]: Sync](dbConfig: DBConnectionConfig): F[Unit] =
-    this.clean[F](url = dbConfig.jdbcURL, username = dbConfig.username, password = dbConfig.password)
+  def clean[F[_]: Sync](
+    dbConfig:     DBConnectionConfig,
+    flywayConfig: Option[FlywayConfig] = Option.empty,
+  ): F[Unit] =
+    for {
+      fw <- flywayInit[F](dbConfig.jdbcURL, dbConfig.username, dbConfig.password, flywayConfig)
+      _  <- Sync[F].delay(fw.clean())
+    } yield ()
 
-  def clean[F[_]: Sync](url:      JDBCUrl, username: DBUsername, password: DBPassword): F[Unit] =
+  @scala.deprecated("Use the overload that takes DBConnectionConfig as input. Will be removed", "0.1.0")
+  def clean[F[_]: Sync](
+    url:      JDBCUrl,
+    username: DBUsername,
+    password: DBPassword,
+  ): F[Unit] =
     for {
       fw <- flywayInit[F](url, username, password, Option.empty)
       _  <- Sync[F].delay(fw.clean())
@@ -74,7 +86,7 @@ object Flyway {
         case None    => () //default everything. Do nothing, lol, java
         case Some(c) =>
           if (c.migrationLocations.nonEmpty) {
-            fwConfig.locations(c.migrationLocations: _*)
+            fwConfig.locations(c.migrationLocations.map(MigrationLocation.oldType): _*)
           }
           if (c.schemas.nonEmpty) {
             fwConfig.schemas(c.schemas: _*)
