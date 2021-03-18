@@ -27,8 +27,7 @@ import org.typelevel.log4cats._
   */
 final class FlywayConfigTest extends PureharmTest {
 
-  override implicit def testLogger: TestLogger = TestLogger(slf4j.Slf4jLogger.getLogger)
-
+  implicit override def testLogger: TestLogger = TestLogger(slf4j.Slf4jLogger.getLogger)
 
   private val `"public"`            = SchemaName("public")
   private val `"db/migration"`      = MigrationLocation("db/migration")

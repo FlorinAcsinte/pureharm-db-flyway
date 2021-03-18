@@ -29,7 +29,7 @@ import busymachines.pureharm.config.implicits._
   * @param schemas
   *   the schemas managed by flyway. If empty defaults to "public".
   *
-  *   See[[org.flywaydb.core.api.configuration.FluentConfiguration#schemas]] for
+  *   Seeorg.flywaydb.core.api.configuration.FluentConfiguration#schemas for
   *   details, this is just a simple wrapper
   * @param migrationLocations
   *   the locations at which to find migrations,
@@ -39,15 +39,15 @@ import busymachines.pureharm.config.implicits._
   *   completely omit the given field, and it will be interpreted as an
   *   empty list, i.e. it will use default
   *
-  *   See [[org.flywaydb.core.api.configuration.FluentConfiguration#locations]] for
+  *   See org.flywaydb.core.api.configuration.FluentConfiguration#locations for
   *   details, this is just a simple wrapper
   * @param ignoreMissingMigrations
-  *  See [[org.flywaydb.core.api.configuration.FluentConfiguration#ignoreMissingMigrations]]
+  *  See org.flywaydb.core.api.configuration.FluentConfiguration#ignoreMissingMigrations
   * @param cleanOnValidationError
   *   NEVER SET THIS TO TRUE IN PROD. This is useful only for development, it will clean the DB
   *   if there's a validation error in the schema (i.e. assumed to be because of in place modification
   *   of a migration in a rapidly moving environment)
-  *   See [[org.flywaydb.core.api.configuration.FluentConfiguration#cleanOnValidationError()]]
+  *   See org.flywaydb.core.api.configuration.FluentConfiguration#cleanOnValidationError()
   */
 final case class FlywayConfig(
   schemas:                 List[SchemaName] = List.empty,
