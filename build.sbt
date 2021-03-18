@@ -94,7 +94,7 @@ val pgJDBCV = "42.2.19"  //java — https://github.com/pgjdbc/pgjdbc/releases
 
 //for testing
 val pureharmTestkitV = "0.1.0-3697355" //https://github.com/busymachines/pureharm-testkit/releases
-val log4catsV = "1.2.0" //  "org.typelevel" %% "log4cats-slf4j"   % "<version>",  // Direct Slf4j Support - Recommended
+val log4catsV = "1.2.0" //https://github.com/typelevel/log4cats/releases
 //=============================================================================
 //============================== Project details ==============================
 //=============================================================================
