@@ -88,6 +88,7 @@ val pureharmCoreV = "0.1.0-7bc6204" //https://github.com/busymachines/pureharm-c
 val pureharmEffectsV = "0.1.0-4946221" //https://github.com/busymachines/pureharm-effects-cats/releases
 val pureharmConfigV = "0.1.0-ed1e9e6" //https://github.com/busymachines/pureharm-config/releases
 val pureharmDBCoreV = "0.1.0-ea46bd5" //https://github.com/busymachines/pureharm-db-core/releases
+val pureharmDBCoreJDBCV = "0.1.0-556c9fc" //https://github.com/busymachines/pureharm-db-core-jdbc/releases
 
 val flywayV = "7.7.0"    //java — https://github.com/flyway/flyway/releases
 val pgJDBCV = "42.2.19"  //java — https://github.com/pgjdbc/pgjdbc/releases
@@ -117,8 +118,8 @@ lazy val `db-flyway` = project
       "com.busymachines" %% "pureharm-core-sprout" % pureharmCoreV withSources(),
       "com.busymachines" %% "pureharm-effects-cats" % pureharmEffectsV withSources(),
       "com.busymachines" %% "pureharm-db-core" % pureharmDBCoreV withSources(),
+      "com.busymachines" %% "pureharm-db-core-jdbc" % pureharmDBCoreJDBCV withSources(),
       "org.flywaydb"  % "flyway-core" % flywayV withSources(),
-      "org.postgresql" % "postgresql" % pgJDBCV withSources (),
       //
       "com.busymachines" %% "pureharm-testkit" % pureharmTestkitV % Test withSources(),
       "org.typelevel" %% "log4cats-slf4j"   % log4catsV % Test withSources(),
