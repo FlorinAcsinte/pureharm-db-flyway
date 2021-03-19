@@ -84,18 +84,18 @@ ThisBuild / versionIntroduced := Map(
 ThisBuild / resolvers += Resolver.sonatypeRepo("releases")
 ThisBuild / resolvers += Resolver.sonatypeRepo("snapshots")
 
-val pureharmCoreV = "0.1.0-7bc6204" //https://github.com/busymachines/pureharm-core/releases
-val pureharmEffectsV = "0.1.0-4946221" //https://github.com/busymachines/pureharm-effects-cats/releases
-val pureharmConfigV = "0.1.0-ed1e9e6" //https://github.com/busymachines/pureharm-config/releases
-val pureharmDBCoreV = "0.1.0-ea46bd5" //https://github.com/busymachines/pureharm-db-core/releases
-val pureharmDBCoreJDBCV = "0.1.0-556c9fc" //https://github.com/busymachines/pureharm-db-core-jdbc/releases
+val pureharmCoreV       = "0.1.0" //https://github.com/busymachines/pureharm-core/releases
+val pureharmEffectsV    = "0.1.0" //https://github.com/busymachines/pureharm-effects-cats/releases
+val pureharmConfigV     = "0.1.0" //https://github.com/busymachines/pureharm-config/releases
+val pureharmDBCoreV     = "0.1.0" //https://github.com/busymachines/pureharm-db-core/releases
+val pureharmDBCoreJDBCV = "0.1.0" //https://github.com/busymachines/pureharm-db-core-jdbc/releases
 
 val flywayV = "7.7.0"    //java — https://github.com/flyway/flyway/releases
 val pgJDBCV = "42.2.19"  //java — https://github.com/pgjdbc/pgjdbc/releases
 
 //for testing
-val pureharmTestkitV = "0.1.0-3697355" //https://github.com/busymachines/pureharm-testkit/releases
-val log4catsV = "1.2.0" //https://github.com/typelevel/log4cats/releases
+val pureharmTestkitV = "0.1.0" //https://github.com/busymachines/pureharm-testkit/releases
+val log4catsV        = "1.2.0" //https://github.com/typelevel/log4cats/releases
 //=============================================================================
 //============================== Project details ==============================
 //=============================================================================
