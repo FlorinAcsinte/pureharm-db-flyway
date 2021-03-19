@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.1.0
+
 Split out from [pureharm](https://github.com/busymachines/pureharm) as of version `0.0.7`.
 
 :warning: Breaking changes :warning:
@@ -17,5 +19,3 @@ Split out from [pureharm](https://github.com/busymachines/pureharm) as of versio
 
 Deprecations:
 - deprecate `Flyway` methods that take JDBCUrl in favor of methods that take `DBConnectionConfig`.
-
-# 0.1.0
