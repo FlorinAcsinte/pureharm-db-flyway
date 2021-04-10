@@ -88,7 +88,7 @@ ThisBuild / resolvers += Resolver.sonatypeRepo("snapshots")
 val pureharmCoreV        =    "0.2.0"      //https://github.com/busymachines/pureharm-core/releases
 val pureharmConfigV      =    "0.4.0"      //https://github.com/busymachines/pureharm-config/releases
 val pureharmDBCoreV      =    "0.4.0"      //https://github.com/busymachines/pureharm-db-core/releases
-val pureharmDBCoreJDBCV  =    "0.3.0"      //https://github.com/busymachines/pureharm-db-core-jdbc/releases
+val pureharmDBCoreJDBCV  =    "0.4.0"      //https://github.com/busymachines/pureharm-db-core-jdbc/releases
 val flywayV              =    "7.7.3"      //java — https://github.com/flyway/flyway/releases
 // format: on
 //=============================================================================
