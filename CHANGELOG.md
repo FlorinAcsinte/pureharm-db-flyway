@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.3.0` - will be removed in a future version
 - [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.3.0`
+- [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.3.0`
 
 # 0.2.0
 
