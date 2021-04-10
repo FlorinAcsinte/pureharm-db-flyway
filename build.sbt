@@ -109,11 +109,13 @@ lazy val `db-flyway` = project
   .settings(
     name := "pureharm-db-flyway",
     libraryDependencies ++= Seq(
-      "com.busymachines" %% "pureharm-core-anomaly" % pureharmCoreV withSources(),
-      "com.busymachines" %% "pureharm-core-sprout" % pureharmCoreV withSources(),
-      "com.busymachines" %% "pureharm-db-core" % pureharmDBCoreV withSources(),
-      "com.busymachines" %% "pureharm-db-core-jdbc" % pureharmDBCoreJDBCV withSources(),
-      "org.flywaydb"  % "flyway-core" % flywayV withSources(),
+      // format: off
+      "com.busymachines"  %% "pureharm-core-anomaly"  % pureharmCoreV         withSources(),
+      "com.busymachines"  %% "pureharm-core-sprout"   % pureharmCoreV         withSources(),
+      "com.busymachines"  %% "pureharm-db-core"       % pureharmDBCoreV       withSources(),
+      "com.busymachines"  %% "pureharm-db-core-jdbc"  % pureharmDBCoreJDBCV   withSources(),
+      "org.flywaydb"       % "flyway-core"            % flywayV               withSources(),
+      // format: on
     ),
   ).settings(
     javaOptions ++= Seq("-source", "1.8", "-target", "1.8")
