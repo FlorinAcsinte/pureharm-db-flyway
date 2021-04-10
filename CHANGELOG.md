@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+### dependency upgrades
+
+- [flyway](https://github.com/flyway/flyway/releases) `7.7.3`
+- [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.3.0` - will be removed in a future version
+- [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.3.0`
+- [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.3.0`
+
 # 0.2.0
 
 ### dependency upgrades
@@ -14,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [flyway](https://github.com/flyway/flyway/releases) `7.7.2`
 - [pureharm-core-anomaly](https://github.com/busymachines/pureharm-core/releases) `0.2.0`
 - [pureharm-core-sprout](https://github.com/busymachines/pureharm-core/releases) `0.2.0`
-- [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.2.0` - will be removed in `0.3.0`
+- [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.2.0` - will be removed in a future version
 - [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.2.0`
 - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.2.0`
 

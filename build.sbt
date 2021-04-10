@@ -86,10 +86,10 @@ ThisBuild / resolvers += Resolver.sonatypeRepo("snapshots")
 
 // format: off
 val pureharmCoreV        =    "0.2.0"      //https://github.com/busymachines/pureharm-core/releases
-val pureharmConfigV      =    "0.2.0"      //https://github.com/busymachines/pureharm-config/releases
-val pureharmDBCoreV      =    "0.2.0"      //https://github.com/busymachines/pureharm-db-core/releases
-val pureharmDBCoreJDBCV  =    "0.2.0"      //https://github.com/busymachines/pureharm-db-core-jdbc/releases
-val flywayV              =    "7.7.2"      //java — https://github.com/flyway/flyway/releases
+val pureharmConfigV      =    "0.3.0"      //https://github.com/busymachines/pureharm-config/releases
+val pureharmDBCoreV      =    "0.3.0"      //https://github.com/busymachines/pureharm-db-core/releases
+val pureharmDBCoreJDBCV  =    "0.3.0"      //https://github.com/busymachines/pureharm-db-core-jdbc/releases
+val flywayV              =    "7.7.3"      //java — https://github.com/flyway/flyway/releases
 // format: on
 //=============================================================================
 //============================== Project details ==============================
@@ -109,11 +109,13 @@ lazy val `db-flyway` = project
   .settings(
     name := "pureharm-db-flyway",
     libraryDependencies ++= Seq(
-      "com.busymachines" %% "pureharm-core-anomaly" % pureharmCoreV withSources(),
-      "com.busymachines" %% "pureharm-core-sprout" % pureharmCoreV withSources(),
-      "com.busymachines" %% "pureharm-db-core" % pureharmDBCoreV withSources(),
-      "com.busymachines" %% "pureharm-db-core-jdbc" % pureharmDBCoreJDBCV withSources(),
-      "org.flywaydb"  % "flyway-core" % flywayV withSources(),
+      // format: off
+      "com.busymachines"  %% "pureharm-core-anomaly"  % pureharmCoreV         withSources(),
+      "com.busymachines"  %% "pureharm-core-sprout"   % pureharmCoreV         withSources(),
+      "com.busymachines"  %% "pureharm-db-core"       % pureharmDBCoreV       withSources(),
+      "com.busymachines"  %% "pureharm-db-core-jdbc"  % pureharmDBCoreJDBCV   withSources(),
+      "org.flywaydb"       % "flyway-core"            % flywayV               withSources(),
+      // format: on
     ),
   ).settings(
     javaOptions ++= Seq("-source", "1.8", "-target", "1.8")
