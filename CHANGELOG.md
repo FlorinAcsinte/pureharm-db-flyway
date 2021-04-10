@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.4.0
+
+:warning: This is the last release that depends on [pureharm-config](https://github.com/busymachines/pureharm-config/releases). Please move config reading into user-code, you can easily do this by depending directly on [pureharm-config](https://github.com/busymachines/pureharm-config/releases), for source and config compat with existing code. Ideally migrate to [pureharm-config-ciris](https://github.com/busymachines/pureharm-config-ciris) instead.
+
 ### dependency upgrades
 
 - [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.4.0` - will be removed in a future version

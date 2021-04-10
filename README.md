@@ -8,13 +8,13 @@ We do not even pretend to support anything other than Postgresql.
 
 The available modules are.
 
-- `"com.busymachines" %% "pureharm-db-flyway" % "0.3.0"`. Which has these as its main dependencies:
+- `"com.busymachines" %% "pureharm-db-flyway" % "0.4.0"`. Which has these as its main dependencies:
   - [flyway](https://github.com/flyway/flyway/releases) `7.7.3`
-  - [pureharm-core-anomaly](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
-  - [pureharm-core-sprout](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
-  - [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.3.0` - will be removed in a future release
-  - [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.3.0`
-  - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.3.0`
+  - [pureharm-core-anomaly](https://github.com/busymachines/pureharm-core/releases) `0.2.0`
+  - [pureharm-core-sprout](https://github.com/busymachines/pureharm-core/releases) `0.2.0`
+  - [pureharm-config](https://github.com/busymachines/pureharm-config/releases) `0.4.0` - will be removed in a future release
+  - [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.4.0`
+  - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.4.0`
 
 ## usage
 
