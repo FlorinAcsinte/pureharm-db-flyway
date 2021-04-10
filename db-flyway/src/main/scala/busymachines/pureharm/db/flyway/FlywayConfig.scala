@@ -73,6 +73,7 @@ final case class FlywayConfig(
   override def defaultConfig: FlywayConfig = FlywayConfig()
 }
 
+@scala.annotation.nowarn
 object FlywayConfig extends ConfigLoader[FlywayConfig] with internals.FlywayConfigFluentApi {
 
   override def defaultConfig: FlywayConfig = FlywayConfig()
