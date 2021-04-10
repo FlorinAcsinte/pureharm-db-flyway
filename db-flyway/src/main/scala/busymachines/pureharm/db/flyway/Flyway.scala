@@ -24,8 +24,8 @@ import busymachines.pureharm.db._
 object Flyway {
   import org.flywaydb.core.{Flyway => JFlyway}
 
-  import busymachines.pureharm.effects._
-  import busymachines.pureharm.effects.implicits._
+  import cats.effect._
+  import cats.syntax.all._
 
   @scala.deprecated("Use the overload that takes DBConnectionConfig as input. Will be removed", "0.1.0")
   def migrate[F[_]](
