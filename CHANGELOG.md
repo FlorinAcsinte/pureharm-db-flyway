@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
-This is the first release that is also available for Scala 3!
+This is the first release that is also available for cats-effect 3 and Scala 3!
+
+### :warning: breaking changes
+- `pureharm-db-flyway` now depends on cats-effect 3! If you are still on cats-effect 2 then use `pureharm-db-flyway-ce2`
+- remove dependency on `pureharm-config`, depend on it in user code, or on `pureharm-config-ciris` and use that instead.
+
+### dependency upgrades
+
+- [flyway](https://github.com/flyway/flyway/releases) `7.12.0`
+- [cats-effect](https://github.com/typelevel/cats-effect/releases) `3.2.1` / `2.5.2`
+- [pureharm-core](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
+- [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.5.0`
+- [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.5.0`
 
 ### internals
 - bump scalafmt to `3.0.0-RC6` — from `2.7.5`

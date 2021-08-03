@@ -18,12 +18,12 @@
 //============================== build details ================================
 //=============================================================================
 
-addCommandAlias("github-gen", "githubWorkflowGenerate")
-addCommandAlias("github-check", "githubWorkflowCheck")
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-val Scala213  = "2.13.5"
-val Scala3RC1 = "3.0.0-RC1"
+// format: off
+val Scala213     = "2.13.6"
+val Scala3       = "3.0.1"
+// format: on
 
 //=============================================================================
 //============================ publishing details =============================
@@ -32,7 +32,7 @@ val Scala3RC1 = "3.0.0-RC1"
 //see: https://github.com/xerial/sbt-sonatype#buildsbt
 ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
 
-ThisBuild / baseVersion      := "0.4"
+ThisBuild / baseVersion      := "0.5"
 ThisBuild / organization     := "com.busymachines"
 ThisBuild / organizationName := "BusyMachines"
 ThisBuild / homepage         := Option(url("https://github.com/busymachines/pureharm-db-core"))
@@ -74,8 +74,8 @@ ThisBuild / crossScalaVersions := List(Scala213) //List(Scala213, Scala3RC1)
 
 //required for binary compat checks
 ThisBuild / versionIntroduced := Map(
-  Scala213  -> "0.1.0",
-  Scala3RC1 -> "0.1.0",
+  Scala213 -> "0.1.0",
+  Scala3   -> "0.5.0",
 )
 
 //=============================================================================
@@ -85,11 +85,12 @@ ThisBuild / resolvers += Resolver.sonatypeRepo("releases")
 ThisBuild / resolvers += Resolver.sonatypeRepo("snapshots")
 
 // format: off
-val pureharmCoreV        =    "0.2.0"      //https://github.com/busymachines/pureharm-core/releases
-val pureharmConfigV      =    "0.4.0"      //https://github.com/busymachines/pureharm-config/releases
-val pureharmDBCoreV      =    "0.4.0"      //https://github.com/busymachines/pureharm-db-core/releases
-val pureharmDBCoreJDBCV  =    "0.4.0"      //https://github.com/busymachines/pureharm-db-core-jdbc/releases
-val flywayV              =    "7.7.3"      //java — https://github.com/flyway/flyway/releases
+val pureharmCoreV        =    "0.3.0"      //https://github.com/busymachines/pureharm-core/releases
+val pureharmDBCoreV      =    "0.5.0"      //https://github.com/busymachines/pureharm-db-core/releases
+val pureharmDBCoreJDBCV  =    "0.5.0"      //https://github.com/busymachines/pureharm-db-core-jdbc/releases
+val catsEffectV          =    "3.2.1"      //https://github.com/typelevel/cats-effect/releases
+val catsEffect2V         =    "2.5.2"      //https://github.com/typelevel/cats-effect/releases
+val flywayV              =    "7.12.0"     //java — https://github.com/flyway/flyway/releases
 // format: on
 //=============================================================================
 //============================== Project details ==============================
@@ -98,7 +99,8 @@ val flywayV              =    "7.7.3"      //java — https://github.com/flyway/
 lazy val root = project
   .in(file("."))
   .aggregate(
-    `db-flyway`
+    `db-flyway`,
+    `db-flyway-ce2`,
   )
   .enablePlugins(NoPublishPlugin)
   .enablePlugins(SonatypeCiReleasePlugin)
@@ -110,11 +112,31 @@ lazy val `db-flyway` = project
     name := "pureharm-db-flyway",
     libraryDependencies ++= Seq(
       // format: off
-      "com.busymachines"  %% "pureharm-core-anomaly"  % pureharmCoreV         withSources(),
-      "com.busymachines"  %% "pureharm-core-sprout"   % pureharmCoreV         withSources(),
-      "com.busymachines"  %% "pureharm-db-core"       % pureharmDBCoreV       withSources(),
-      "com.busymachines"  %% "pureharm-db-core-jdbc"  % pureharmDBCoreJDBCV   withSources(),
-      "org.flywaydb"       % "flyway-core"            % flywayV               withSources(),
+      "com.busymachines"      %% "pureharm-core-anomaly"      % pureharmCoreV           withSources(),
+      "com.busymachines"      %% "pureharm-core-sprout"       % pureharmCoreV           withSources(),
+      "com.busymachines"      %% "pureharm-db-core"           % pureharmDBCoreV         withSources(),
+      "com.busymachines"      %% "pureharm-db-core-jdbc"      % pureharmDBCoreJDBCV     withSources(),
+      "org.typelevel"         %% "cats-effect"                % catsEffectV             withSources(),
+      "org.flywaydb"           % "flyway-core"                % flywayV                 withSources(),
+      // format: on
+    ),
+  )
+  .settings(
+    javaOptions ++= Seq("-source", "1.8", "-target", "1.8")
+  )
+
+lazy val `db-flyway-ce2` = project
+  .settings(commonSettings)
+  .settings(
+    name := "pureharm-db-flyway-ce2",
+    libraryDependencies ++= Seq(
+      // format: off
+      "com.busymachines"      %% "pureharm-core-anomaly"      % pureharmCoreV           withSources(),
+      "com.busymachines"      %% "pureharm-core-sprout"       % pureharmCoreV           withSources(),
+      "com.busymachines"      %% "pureharm-db-core"           % pureharmDBCoreV         withSources(),
+      "com.busymachines"      %% "pureharm-db-core-jdbc"      % pureharmDBCoreJDBCV     withSources(),
+      "org.typelevel"         %% "cats-effect"                % catsEffect2V            withSources(),
+      "org.flywaydb"           % "flyway-core"                % flywayV                 withSources(),
       // format: on
     ),
   )
