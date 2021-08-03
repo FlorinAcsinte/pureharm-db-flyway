@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.5.0
+
 This is the first release that is also available for cats-effect 3 and Scala 3!
 
 ### :warning: breaking changes
 - `pureharm-db-flyway` now depends on cats-effect 3! If you are still on cats-effect 2 then use `pureharm-db-flyway-ce2`
-- remove dependency on `pureharm-config`, depend on it in user code, or on `pureharm-config-ciris` and use that instead.
+- remove dependency on `pureharm-config`, depend on it in user code, or on `pureharm-config-ciris`, and use it there to read the config.
 
 ### dependency upgrades
 
