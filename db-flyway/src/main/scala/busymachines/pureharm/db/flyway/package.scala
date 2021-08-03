@@ -18,8 +18,10 @@ package busymachines.pureharm.db
 
 import busymachines.pureharm.sprout._
 
-/** @author Lorand Szakacs, https://github.com/lorandszakacs
-  * @since 30 Jul 2019
+/** @author
+  *   Lorand Szakacs, https://github.com/lorandszakacs
+  * @since 30
+  *   Jul 2019
   */
 package object flyway {
 

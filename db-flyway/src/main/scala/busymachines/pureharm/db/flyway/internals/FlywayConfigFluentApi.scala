@@ -19,8 +19,10 @@ package busymachines.pureharm.db.flyway.internals
 import busymachines.pureharm.db.SchemaName
 import busymachines.pureharm.db.flyway._
 
-/** @author Lorand Szakacs, https://github.com/lorandszakacs
-  * @since 30 Jul 2019
+/** @author
+  *   Lorand Szakacs, https://github.com/lorandszakacs
+  * @since 30
+  *   Jul 2019
   */
 private[db] trait FlywayConfigFluentApi {
   def withLocations(locations: MigrationLocation*):      FlywayConfig

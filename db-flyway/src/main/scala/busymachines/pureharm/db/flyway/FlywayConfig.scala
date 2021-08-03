@@ -20,40 +20,37 @@ import busymachines.pureharm.db.SchemaName
 import busymachines.pureharm.config._
 import busymachines.pureharm.config.implicits._
 
-/** @author Lorand Szakacs, https://github.com/lorandszakacs
-  * @since 30 Jul 2019
-  * --
-  * Currently does not support all possible flyway configurations, any new supported ones will be
-  * added with the same default values as Flyway uses to make all changes source-compatible.
+/** @author
+  *   Lorand Szakacs, https://github.com/lorandszakacs
+  * @since 30
+  *   Jul 2019
+  * -- Currently does not support all possible flyway configurations, any new supported ones will be added with the same
+  * default values as Flyway uses to make all changes source-compatible.
   * --
   * @param schemas
   *   the schemas managed by flyway. If empty defaults to "public".
   *
-  *   Seeorg.flywaydb.core.api.configuration.FluentConfiguration#schemas for
-  *   details, this is just a simple wrapper
+  * Seeorg.flywaydb.core.api.configuration.FluentConfiguration#schemas for details, this is just a simple wrapper
   * @param migrationLocations
   *   the locations at which to find migrations,
   *
-  *   if the list is empty then it defaults to `/db/migration` folder
-  *   on the classpath. If you use the given config reader, then you can
-  *   completely omit the given field, and it will be interpreted as an
-  *   empty list, i.e. it will use default
+  * if the list is empty then it defaults to `/db/migration` folder on the classpath. If you use the given config
+  * reader, then you can completely omit the given field, and it will be interpreted as an empty list, i.e. it will use
+  * default
   *
-  *   See org.flywaydb.core.api.configuration.FluentConfiguration#locations for
-  *   details, this is just a simple wrapper
+  * See org.flywaydb.core.api.configuration.FluentConfiguration#locations for details, this is just a simple wrapper
   * @param ignoreMissingMigrations
-  *  See org.flywaydb.core.api.configuration.FluentConfiguration#ignoreMissingMigrations
+  *   See org.flywaydb.core.api.configuration.FluentConfiguration#ignoreMissingMigrations
   * @param cleanOnValidationError
-  *   NEVER SET THIS TO TRUE IN PROD. This is useful only for development, it will clean the DB
-  *   if there's a validation error in the schema (i.e. assumed to be because of in place modification
-  *   of a migration in a rapidly moving environment)
-  *   See org.flywaydb.core.api.configuration.FluentConfiguration#cleanOnValidationError()
+  *   NEVER SET THIS TO TRUE IN PROD. This is useful only for development, it will clean the DB if there's a validation
+  *   error in the schema (i.e. assumed to be because of in place modification of a migration in a rapidly moving
+  *   environment) See org.flywaydb.core.api.configuration.FluentConfiguration#cleanOnValidationError()
   */
 final case class FlywayConfig(
-  schemas:                 List[SchemaName] = List.empty,
+  schemas:                 List[SchemaName]        = List.empty,
   migrationLocations:      List[MigrationLocation] = List.empty,
   ignoreMissingMigrations: IgnoreMissingMigrations = IgnoreMissingMigrations.False,
-  cleanOnValidationError:  CleanOnValidationError = CleanOnValidationError.False,
+  cleanOnValidationError:  CleanOnValidationError  = CleanOnValidationError.False,
 ) extends internals.FlywayConfigFluentApi {
 
   override def withLocations(locations: MigrationLocation*): FlywayConfig = this.withLocations(locations.toList)
@@ -106,22 +103,19 @@ object FlywayConfig extends ConfigLoader[FlywayConfig] with internals.FlywayConf
   implicit override val configReader: ConfigReader[FlywayConfig] =
     alternateRepresentationReader.orElse(semiauto.deriveReader[FlywayConfig])
 
-  /** This allows us to specify a single string, instead of a list of strings,
-    * if that is the case that we want. This is actually quite an important feature,
-    * because, for instance, in amazon ECS you can't really inject a list into a config
-    * file via an environment variable, you inject a string representing the array,
-    * "["value1", "value2"]" instead of ["value1", "value2"]. And by allowing this,
-    * you can at least specify one configuration value. If you actually
-    * need to inject two values, then gods be with you, lol. You'd have to do it
-    * by some other mechanism than ECS environment variables.
+  /** This allows us to specify a single string, instead of a list of strings, if that is the case that we want. This is
+    * actually quite an important feature, because, for instance, in amazon ECS you can't really inject a list into a
+    * config file via an environment variable, you inject a string representing the array, "["value1", "value2"]"
+    * instead of ["value1", "value2"]. And by allowing this, you can at least specify one configuration value. If you
+    * actually need to inject two values, then gods be with you, lol. You'd have to do it by some other mechanism than
+    * ECS environment variables.
     *
-    * This might seem like an oddly specific feature, but well, such is life,
-    * it useful outside of these scenarios too.
+    * This might seem like an oddly specific feature, but well, such is life, it useful outside of these scenarios too.
     */
   private case class SimplifiedRepr(
-    schemas:                 Option[SchemaName] = Option.empty,
+    schemas:                 Option[SchemaName]        = Option.empty,
     migrationLocations:      Option[MigrationLocation] = Option.empty,
-    ignoreMissingMigrations: IgnoreMissingMigrations = IgnoreMissingMigrations.False,
-    cleanOnValidationError:  CleanOnValidationError = CleanOnValidationError.False,
+    ignoreMissingMigrations: IgnoreMissingMigrations   = IgnoreMissingMigrations.False,
+    cleanOnValidationError:  CleanOnValidationError    = CleanOnValidationError.False,
   )
 }
