@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+This is the first release that is also available for Scala 3!
+
+### internals
+- bump scalafmt to `3.0.0-RC6` — from `2.7.5`
+- bump sbt to `1.5.5`
+- bump sbt-spiewak to `0.21.0`
+- bump sbt-scalafmt to `2.4.3`
+
 # 0.4.0
 
 :warning: This is the last release that depends on [pureharm-config](https://github.com/busymachines/pureharm-config/releases). Please move config reading into user-code, you can easily do this by depending directly on [pureharm-config](https://github.com/busymachines/pureharm-config/releases), for source and config compat with existing code. Ideally migrate to [pureharm-config-ciris](https://github.com/busymachines/pureharm-config-ciris) instead.
