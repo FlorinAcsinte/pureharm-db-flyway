@@ -32,7 +32,7 @@ val Scala3       = "3.0.1"
 //see: https://github.com/xerial/sbt-sonatype#buildsbt
 ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
 
-ThisBuild / baseVersion      := "0.5"
+ThisBuild / baseVersion      := "0.5.1"
 ThisBuild / organization     := "com.busymachines"
 ThisBuild / organizationName := "BusyMachines"
 ThisBuild / homepage         := Option(url("https://github.com/busymachines/pureharm-db-core"))
