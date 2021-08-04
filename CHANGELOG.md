@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.5.1
+
+Scala 3 release of `0.5.0`, due to bothced release. Otherwise identical to 0.5.1.
+
 # 0.5.0
 
 This is the first release that is also available for cats-effect 3 and Scala 3!
