@@ -14,14 +14,14 @@ The available modules are.
   - [pureharm-core-anomaly](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
   - [pureharm-core-sprout](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
   - [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.5.0`
-  - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.5.0`
+  - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.6.0`
 - `"com.busymachines" %% "pureharm-db-flyway" % "0.6.0"`. Which has these as its main dependencies:
   - [cats-effect](https://github.com/typelevel/cats-effect/releases) `2.5.2`
   - [flyway](https://github.com/flyway/flyway/releases) `7.12.0`
   - [pureharm-core-anomaly](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
   - [pureharm-core-sprout](https://github.com/busymachines/pureharm-core/releases) `0.3.0`
   - [pureharm-db-core](https://github.com/busymachines/pureharm-db-core/releases) `0.5.0`
-  - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.5.0`
+  - [pureharm-db-core-jdbc](https://github.com/busymachines/pureharm-db-core-jdbc/releases) `0.6.0`
 
 ## usage
 
