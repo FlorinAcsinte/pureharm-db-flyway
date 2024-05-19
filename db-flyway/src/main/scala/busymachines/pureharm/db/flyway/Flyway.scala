@@ -74,9 +74,10 @@ object Flyway {
           if (c.schemas.nonEmpty) {
             fwConfig.schemas(c.schemas: _*)
           }
-          fwConfig.ignoreMissingMigrations(c.ignoreMissingMigrations)
+          if (c.ignoreMissingMigrations) {
+            fwConfig.ignoreMigrationPatterns("*:missing")
+          }
           fwConfig.cleanOnValidationError(c.cleanOnValidationError)
-
       }
 
       new JFlyway(fwConfig)
