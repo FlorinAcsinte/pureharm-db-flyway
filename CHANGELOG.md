@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.6.2
+
+Internal changes to version management
+
 # 0.6.1
 
 Lib version bump
