@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.6.1
+
+Lib version bump
+
+- [flyway](https://github.com/flyway/flyway/releases) `7.12.0` ->  `10.12.0`
+- [cats-effect](https://github.com/typelevel/cats-effect/releases) `3.2.1` -> `3.5.4`
+
 # 0.6.0
 
 This is the first release that is also available for cats-effect 3 and Scala 3!
